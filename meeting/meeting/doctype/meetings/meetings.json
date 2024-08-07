@@ -1,0 +1,153 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "Meeting-.#",
+ "creation": "2024-07-30 18:52:21.622521",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "status",
+  "column_break_6mw3",
+  "date",
+  "from_time",
+  "to_time",
+  "attendee_section",
+  "attendees",
+  "meeting_invitation_section",
+  "meeting_invitation",
+  "send_email",
+  "agenda_section",
+  "agenda",
+  "minutes_section",
+  "meeting"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "From Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "To Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nPlanned\nInvitation Sent\nIn Progress\nCompleted\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "agenda",
+   "fieldtype": "Table",
+   "label": "Agenda",
+   "options": "Meeting Agenda"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "agenda_section",
+   "fieldtype": "Section Break",
+   "label": "Agenda"
+  },
+  {
+   "fieldname": "meeting",
+   "fieldtype": "Table",
+   "label": "Meeting",
+   "options": "Meeting Minute"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "minutes_section",
+   "fieldtype": "Section Break",
+   "label": "Minutes"
+  },
+  {
+   "fieldname": "column_break_6mw3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "attendee_section",
+   "fieldtype": "Section Break",
+   "label": "Attendee"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.status === \"Planned\"",
+   "fieldname": "meeting_invitation_section",
+   "fieldtype": "Section Break",
+   "label": "Meeting Invitation"
+  },
+  {
+   "fieldname": "meeting_invitation",
+   "fieldtype": "Text Editor",
+   "label": "Meeting Invitation"
+  },
+  {
+   "fieldname": "send_email",
+   "fieldtype": "Button",
+   "label": "Send Email"
+  },
+  {
+   "fieldname": "attendees",
+   "fieldtype": "Table",
+   "label": "Attendees",
+   "options": "Meeting Attendee"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-01 15:57:13.614299",
+ "modified_by": "Administrator",
+ "module": "Meeting",
+ "name": "Meetings",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Meeting Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
